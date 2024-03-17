@@ -29,7 +29,7 @@ const SpeechPartTitle = () => {
 
 const Meanings = () => {
   return (
-    <div>
+    <div className="mb-6">
       <p className="text-gray-1 mb-[1rem] text-[1.0625rem] font-normal">
         Meaning
       </p>
@@ -43,7 +43,18 @@ const Meanings = () => {
 };
 
 const Synonyms = () => {
-  return <div></div>;
+  return (
+    <div className="mb-8 flex">
+      <span className="text-gray-1 mr-6 text-base font-normal">Synonyms</span>
+      <ul>
+        <li>
+          <a href="#" className="text-purple text-base font-bold">
+            electronic keyboard
+          </a>
+        </li>
+      </ul>
+    </div>
+  );
 };
 
 export default SpeechParts;

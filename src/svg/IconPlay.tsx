@@ -1,9 +1,14 @@
-const IconPlay = () => {
+interface IconPlayProps {
+  width?: string;
+  height?: string;
+}
+
+const IconPlay = ({ width = "75", height = "75" }: IconPlayProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="75"
-      height="75"
+      width={width}
+      height={height}
       viewBox="0 0 75 75"
     >
       <g fill="#A445ED" fill-rule="evenodd">

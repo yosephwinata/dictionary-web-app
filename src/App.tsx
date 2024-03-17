@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import Pronunciation from "./components/Pronunciation";
 import SearchBar from "./ui/SearchBar";
 
 const App = () => {
@@ -11,6 +12,7 @@ const App = () => {
         <div className="mb-6">
           <SearchBar />
         </div>
+        <Pronunciation />
       </div>
     </div>
   );

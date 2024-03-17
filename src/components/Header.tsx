@@ -5,10 +5,15 @@ import ToggleSwitch from "../ui/ToggleSwitch";
 
 const Header = () => {
   return (
-    <div className="mb-6 flex items-center">
+    <div className="flex items-center">
       <Logo />
-      <FontSelector />
-      <ToggleSwitch />
+      <div className="ml-auto">
+        <FontSelector />
+      </div>
+      <VerticalLine />
+      <div className="ml-5">
+        <ToggleSwitch />
+      </div>
       <div className="ml-3">
         <IconMoon />
       </div>
@@ -18,11 +23,15 @@ const Header = () => {
 
 const FontSelector = () => {
   return (
-    <button className="ml-auto flex items-center gap-4">
+    <button className="flex items-center gap-4">
       <span className="text-black-3 text-[0.875rem] font-bold">Sans Serif</span>
       <IconArrowDown />
     </button>
   );
+};
+
+const VerticalLine = () => {
+  return <div className="bg-gray-2 ml-[1.1625rem] h-8 w-[0.0625rem]"></div>;
 };
 
 export default Header;

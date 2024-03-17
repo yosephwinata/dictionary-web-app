@@ -1,10 +1,16 @@
 import Header from "./components/Header";
+import SearchBar from "./ui/SearchBar";
 
 const App = () => {
   return (
     <div className="flex justify-center pt-6">
-      <div className="w-[20.44rem] bg-red-200">
-        <Header />
+      <div className="w-[20.44rem]">
+        <div className="mb-6">
+          <Header />
+        </div>
+        <div className="mb-6">
+          <SearchBar />
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import Meaning from "./components/Meaning";
+import SpeechParts from "./components/SpeechParts";
 import Pronunciation from "./components/Pronunciation";
 import SearchBar from "./ui/SearchBar";
 
@@ -10,7 +10,7 @@ const App = () => {
         <Header />
         <SearchBar />
         <Pronunciation />
-        <Meaning />
+        <SpeechParts />
       </div>
     </div>
   );

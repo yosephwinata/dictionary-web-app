@@ -13,3 +13,10 @@
     /* font-family: "Inconsolata", monospace; */
   }
 }
+
+@layer utilities {
+  .list-disc-custom-color li::marker {
+    /* Customize the color of the bullet point of the <li> tags */
+    color: #a445ed;
+  }
+}

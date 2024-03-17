@@ -5,7 +5,7 @@ import ToggleSwitch from "../ui/ToggleSwitch";
 
 const Header = () => {
   return (
-    <div className="flex items-center">
+    <div className="mb-6 flex items-center">
       <Logo />
       <div className="ml-auto">
         <FontSelector />

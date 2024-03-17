@@ -2,7 +2,7 @@ import IconSearch from "../svg/IconSearch";
 
 const SearchBar = () => {
   return (
-    <div className="relative">
+    <div className="relative mb-6">
       <input
         placeholder="Search for any word…"
         className="bg-gray-3 h-12 w-full rounded-[16px] px-6"

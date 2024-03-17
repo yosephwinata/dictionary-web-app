@@ -5,7 +5,7 @@ import ToggleSwitch from "../ui/ToggleSwitch";
 
 const Header = () => {
   return (
-    <div className="mb-6 flex items-center">
+    <header className="mb-6 flex items-center">
       <Logo />
       <div className="ml-auto">
         <FontSelector />
@@ -17,7 +17,7 @@ const Header = () => {
       <div className="ml-3">
         <IconMoon />
       </div>
-    </div>
+    </header>
   );
 };
 

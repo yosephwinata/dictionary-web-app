@@ -1,8 +1,8 @@
 import IconNewWindow from "../svg/IconNewWindow";
 
-const Footer = () => {
+const Source = () => {
   return (
-    <footer>
+    <div>
       <p className="text-gray-1 decoration-gray-2 mb-1 text-[0.875rem] font-normal underline decoration-2 underline-offset-2">
         Source
       </p>
@@ -15,8 +15,8 @@ const Footer = () => {
         </a>
         <IconNewWindow />
       </div>
-    </footer>
+    </div>
   );
 };
 
-export default Footer;
+export default Source;

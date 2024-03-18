@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useDictionary } from "./hooks/useDictionary";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { DictionaryResponse } from "./types/types";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -45,9 +46,6 @@ const AppContainer = () => {
     }
   };
 
-  // console.log("data", data);
-  // const { phonetics, meanings, sourceUrls } = data[0]; // Destructure the fetched data
-
   return (
     <div className="w-[20.44rem]">
       <Header />
@@ -59,17 +57,19 @@ const AppContainer = () => {
         />
         {isLoading && <p>Loading...</p>}
         {isError && <p>{error?.message}</p>}
-        {/* {data && <Results />} */}
-        {data && <p>FOUND!!</p>}
+        {data && <Results data={data} />}
+        {/* {data && <p>FOUND!!</p>} */}
       </main>
     </div>
   );
 };
 
-const Results = () => {
+const Results = ({ data }: { data: DictionaryResponse[] }) => {
+  const { word, phonetics, meanings, sourceUrls } = data[0]; // Destructure the fetched data
+
   return (
     <div>
-      <Pronunciation />
+      <Pronunciation word={word} phonetics={phonetics} />
       <SpeechParts />
       <HorizontalLine />
       <Source />

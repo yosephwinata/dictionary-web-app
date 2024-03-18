@@ -1,28 +1,5 @@
 import axiosInstance from "../axios/axiosInstance";
-
-interface Phonetic {
-  text: string;
-  audio: string;
-}
-
-interface Definition {
-  definition: string;
-  synonyms: string[];
-  antonyms: string[];
-  example?: string;
-}
-
-interface Meaning {
-  partOfSpeech: string;
-  definitions: Definition[];
-}
-
-interface DictionaryResponse {
-  word: string;
-  phonetics: Phonetic[];
-  meanings: Meaning[];
-  sourceUrls: string[];
-}
+import { DictionaryResponse } from "../types/types";
 
 export const getDictionary = async (
   keyword: string,

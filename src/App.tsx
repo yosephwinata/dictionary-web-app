@@ -22,7 +22,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <div className="flex justify-center pt-6">
+      <div className="flex justify-center pb-[5.3rem] pt-6">
         <AppContainer />
       </div>
     </QueryClientProvider>

@@ -11,13 +11,13 @@ const SpeechParts = ({ meanings }: { meanings: Meaning[] }) => {
 };
 
 const SpeechPart = ({ meaning }: { meaning: Meaning }) => {
-  const { partOfSpeech, definitions } = meaning;
+  const { partOfSpeech, definitions, synonyms } = meaning;
 
   return (
     <div>
       <SpeechPartTitle partOfSpeech={partOfSpeech} />
       <Meanings definitions={definitions} />
-      <Synonyms />
+      {synonyms.length > 0 && <Synonyms synonyms={synonyms} />}
     </div>
   );
 };
@@ -52,16 +52,20 @@ const Meanings = ({ definitions }: { definitions: Definition[] }) => {
   );
 };
 
-const Synonyms = () => {
+const Synonyms = ({ synonyms }: { synonyms: string[] }) => {
   return (
     <div className="mb-8 flex">
       <span className="text-gray-1 mr-6 text-base font-normal">Synonyms</span>
-      <ul>
-        <li>
-          <a href="#" className="text-purple text-base font-bold">
-            electronic keyboard
-          </a>
-        </li>
+      <ul className="flex flex-col gap-0">
+        {synonyms.map((synonym) => {
+          return (
+            <li>
+              <a href="#" className="text-purple text-base font-bold">
+                {synonym}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

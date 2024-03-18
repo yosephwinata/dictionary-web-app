@@ -70,7 +70,7 @@ const Results = ({ data }: { data: DictionaryResponse[] }) => {
   return (
     <div>
       <Pronunciation word={word} phonetics={phonetics} />
-      <SpeechParts />
+      <SpeechParts meanings={meanings} />
       <HorizontalLine />
       {sourceUrls.length > 0 && <Source sourceUrls={sourceUrls} />}
     </div>

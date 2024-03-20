@@ -4,8 +4,11 @@ import useBoundStore from "../../useBoundStore";
 const SpeechParts = ({ meanings }: { meanings: Meaning[] }) => {
   return (
     <div>
-      {meanings.map((meaning) => (
-        <SpeechPart key={meaning.partOfSpeech} meaning={meaning} />
+      {meanings.map((meaning, index) => (
+        <SpeechPart
+          key={`${meaning.partOfSpeech}-${index}`}
+          meaning={meaning}
+        />
       ))}
     </div>
   );
@@ -74,7 +77,7 @@ const Synonyms = ({ synonyms }: { synonyms: string[] }) => {
             <li key={`${synonym}-${index}`}>
               <button
                 onClick={() => handleSynonymClick(synonym)}
-                className="text-purple text-base font-bold"
+                className="text-purple text-base font-bold hover:underline hover:underline-offset-[2px]"
               >
                 {synonym}
               </button>

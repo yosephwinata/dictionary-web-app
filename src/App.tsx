@@ -9,6 +9,7 @@ import { ChangeEvent, KeyboardEvent } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { DictionaryResponse } from "./types/types";
 import useBoundStore from "./useBoundStore";
+import NoDefinitionsFound from "./ui/NoDefinitionsFound";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -61,9 +62,8 @@ const AppContainer = () => {
           onSearchInputChange={handleSearchInputChange}
         />
         {isLoading && <p>Loading...</p>}
-        {isError && <p>{error?.message}</p>}
+        {isError && <NoDefinitionsFound />}
         {data && <Results data={data} />}
-        {/* {data && <p>FOUND!!</p>} */}
       </main>
     </div>
   );
@@ -73,7 +73,7 @@ const Results = ({ data }: { data: DictionaryResponse[] }) => {
   const { word, phonetics, meanings, sourceUrls } = data[0]; // Destructure the fetched data
 
   return (
-    <div>
+    <div className="mt-6">
       <Pronunciation word={word} phonetics={phonetics} />
       <SpeechParts meanings={meanings} />
       <HorizontalLine />

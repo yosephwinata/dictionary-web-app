@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDictionary } from "../services/apiDictionary";
+import { getDictionary } from "../../services/apiDictionary";
 
 export const useDictionary = (keyword: string) => {
   const query = useQuery({

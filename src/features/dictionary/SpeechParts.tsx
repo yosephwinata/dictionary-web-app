@@ -1,10 +1,11 @@
-import { Definition, Meaning } from "../types/types";
+import { Definition, Meaning } from "../../types/types";
+import useBoundStore from "../../useBoundStore";
 
 const SpeechParts = ({ meanings }: { meanings: Meaning[] }) => {
   return (
     <div>
       {meanings.map((meaning) => (
-        <SpeechPart meaning={meaning} />
+        <SpeechPart key={meaning.partOfSpeech} meaning={meaning} />
       ))}
     </div>
   );
@@ -42,7 +43,10 @@ const Meanings = ({ definitions }: { definitions: Definition[] }) => {
       <ul className="list-disc-custom-color flex flex-col gap-3 pl-5">
         {definitions.map((definition) => {
           return (
-            <li className="text-black-3 list-disc text-base font-normal">
+            <li
+              key={definition.definition}
+              className="text-black-3 list-disc text-base font-normal"
+            >
               <p>{definition.definition}</p>
             </li>
           );
@@ -53,16 +57,27 @@ const Meanings = ({ definitions }: { definitions: Definition[] }) => {
 };
 
 const Synonyms = ({ synonyms }: { synonyms: string[] }) => {
+  const setSearchInput = useBoundStore((state) => state.setSearchInput);
+  const setFetchKeyword = useBoundStore((state) => state.setFetchKeyword);
+
+  const handleSynonymClick = (synonym: string) => {
+    setSearchInput(synonym);
+    setFetchKeyword(synonym);
+  };
+
   return (
     <div className="mb-8 flex">
       <span className="text-gray-1 mr-6 text-base font-normal">Synonyms</span>
       <ul className="flex flex-col gap-0">
-        {synonyms.map((synonym) => {
+        {synonyms.map((synonym, index) => {
           return (
-            <li>
-              <a href="#" className="text-purple text-base font-bold">
+            <li key={`${synonym}-${index}`}>
+              <button
+                onClick={() => handleSynonymClick(synonym)}
+                className="text-purple text-base font-bold"
+              >
                 {synonym}
-              </a>
+              </button>
             </li>
           );
         })}

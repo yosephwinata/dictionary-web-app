@@ -1,6 +1,6 @@
-import IconPlay from "../svg/IconPlay";
-import { Phonetic } from "../types/types";
-import useAudio from "../hooks/useAudio";
+import IconPlay from "../../svg/IconPlay";
+import { Phonetic } from "../../types/types";
+import useAudio from "../../hooks/useAudio";
 
 interface PronunciationProps {
   word: string;

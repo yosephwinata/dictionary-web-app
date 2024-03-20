@@ -1,4 +1,5 @@
 import { Definition, Meaning } from "../../types/types";
+import useBoundStore from "../../useBoundStore";
 
 const SpeechParts = ({ meanings }: { meanings: Meaning[] }) => {
   return (
@@ -56,6 +57,14 @@ const Meanings = ({ definitions }: { definitions: Definition[] }) => {
 };
 
 const Synonyms = ({ synonyms }: { synonyms: string[] }) => {
+  const setSearchInput = useBoundStore((state) => state.setSearchInput);
+  const setFetchKeyword = useBoundStore((state) => state.setFetchKeyword);
+
+  const handleSynonymClick = (synonym: string) => {
+    setSearchInput(synonym);
+    setFetchKeyword(synonym);
+  };
+
   return (
     <div className="mb-8 flex">
       <span className="text-gray-1 mr-6 text-base font-normal">Synonyms</span>
@@ -63,9 +72,12 @@ const Synonyms = ({ synonyms }: { synonyms: string[] }) => {
         {synonyms.map((synonym, index) => {
           return (
             <li key={`${synonym}-${index}`}>
-              <a href="#" className="text-purple text-base font-bold">
+              <button
+                onClick={() => handleSynonymClick(synonym)}
+                className="text-purple text-base font-bold"
+              >
                 {synonym}
-              </a>
+              </button>
             </li>
           );
         })}

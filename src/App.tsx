@@ -1,13 +1,14 @@
 import Header from "./components/Header";
-import SpeechParts from "./components/SpeechParts";
-import Pronunciation from "./components/Pronunciation";
+import SpeechParts from "./features/dictionary/SpeechParts";
+import Pronunciation from "./features/dictionary/Pronunciation";
 import SearchBar from "./ui/SearchBar";
-import Source from "./components/Source";
+import Source from "./features/dictionary/Source";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useDictionary } from "./hooks/useDictionary";
-import { ChangeEvent, KeyboardEvent, useState } from "react";
+import { useDictionary } from "./features/dictionary/useDictionary";
+import { ChangeEvent, KeyboardEvent } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { DictionaryResponse } from "./types/types";
+import useBoundStore from "./useBoundStore";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -30,8 +31,12 @@ const App = () => {
 };
 
 const AppContainer = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const [fetchKeyword, setFetchKeyword] = useState("");
+  const searchInput = useBoundStore((state) => state.searchInput);
+  const setSearchInput = useBoundStore((state) => state.setSearchInput);
+  const fetchKeyword = useBoundStore((state) => state.fetchKeyword);
+  const setFetchKeyword = useBoundStore((state) => state.setFetchKeyword);
+  // const [searchInput, setSearchInput] = useState("");
+  // const [fetchKeyword, setFetchKeyword] = useState("");
 
   const { data, error, isLoading, isError } = useDictionary(fetchKeyword);
 

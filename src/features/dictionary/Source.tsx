@@ -1,4 +1,4 @@
-import IconNewWindow from "../svg/IconNewWindow";
+import IconNewWindow from "../../svg/IconNewWindow";
 
 interface SourceProps {
   sourceUrls: string[];

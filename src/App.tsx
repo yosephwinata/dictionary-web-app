@@ -10,6 +10,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { DictionaryResponse } from "./types/types";
 import useBoundStore from "./useBoundStore";
 import NoDefinitionsFound from "./ui/NoDefinitionsFound";
+import Spinner from "./ui/Spinner";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -61,10 +62,19 @@ const AppContainer = () => {
           searchInput={searchInput}
           onSearchInputChange={handleSearchInputChange}
         />
-        {isLoading && <p>Loading...</p>}
+        {isLoading && <LoadingIndicator />}
         {isError && <NoDefinitionsFound />}
         {data && <Results data={data} />}
       </main>
+    </div>
+  );
+};
+
+const LoadingIndicator = () => {
+  return (
+    <div className="flex h-52 w-full flex-col items-center justify-center">
+      <Spinner />
+      <p className="text-gray-1 mt-2 text-lg">Loading</p>
     </div>
   );
 };

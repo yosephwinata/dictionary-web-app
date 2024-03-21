@@ -1,4 +1,6 @@
 const Spinner = () => {
+  // Read this to customize the spinner:
+  // https://flowbite.com/docs/components/spinner/
   return (
     <div role="status">
       <svg

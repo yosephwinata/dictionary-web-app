@@ -6,9 +6,8 @@ const NoDefinitionsFound = () => {
         No Definitions Found
       </p>
       <p className="text-gray-1 text-center text-[1rem] md:text-[1.125rem]">
-        Sorry pal, we couldn't find definitions for the word you were looking
-        for. You can try the search again at later time or head to the web
-        instead.
+        We couldn't find the definitions for the word you were looking for. You
+        can try the search again at a later time or try a different word.
       </p>
     </div>
   );

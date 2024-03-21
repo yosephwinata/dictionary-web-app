@@ -5,7 +5,7 @@ import SearchBar from "./ui/SearchBar";
 import Source from "./features/dictionary/Source";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useDictionary } from "./features/dictionary/useDictionary";
-import { ChangeEvent, KeyboardEvent } from "react";
+import { ChangeEvent, KeyboardEvent, useState } from "react";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { DictionaryResponse } from "./types/types";
 import useBoundStore from "./useBoundStore";
@@ -39,17 +39,24 @@ const AppContainer = () => {
   const setFetchKeyword = useBoundStore((state) => state.setFetchKeyword);
   // const [searchInput, setSearchInput] = useState("");
   // const [fetchKeyword, setFetchKeyword] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
 
   const { data, error, isLoading, isError } = useDictionary(fetchKeyword);
 
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (errorMsg && e.target.value.trim()) {
+      setErrorMsg("");
+    }
     setSearchInput(e.target.value);
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
+      if (!searchInput.trim()) {
+        setErrorMsg("This field is required");
+      }
       // This will trigger React Query to fetch the API
-      setFetchKeyword(searchInput);
+      setFetchKeyword(searchInput.trim());
     }
   };
 
@@ -61,6 +68,7 @@ const AppContainer = () => {
           onKeyDown={handleKeyDown}
           searchInput={searchInput}
           onSearchInputChange={handleSearchInputChange}
+          errorMsg={errorMsg}
         />
         {isLoading && <LoadingIndicator />}
         {isError && <NoDefinitionsFound />}

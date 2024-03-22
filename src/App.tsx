@@ -37,11 +37,10 @@ const AppContainer = () => {
   const setSearchInput = useBoundStore((state) => state.setSearchInput);
   const fetchKeyword = useBoundStore((state) => state.fetchKeyword);
   const setFetchKeyword = useBoundStore((state) => state.setFetchKeyword);
-  // const [searchInput, setSearchInput] = useState("");
-  // const [fetchKeyword, setFetchKeyword] = useState("");
+
   const [errorMsg, setErrorMsg] = useState("");
 
-  const { data, error, isLoading, isError } = useDictionary(fetchKeyword);
+  const { data, isLoading, isError } = useDictionary(fetchKeyword);
 
   const handleSearchInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     if (errorMsg && e.target.value.trim()) {

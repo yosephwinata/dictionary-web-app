@@ -2,6 +2,7 @@ import IconArrowDown from "../svg/IconArrowDown";
 import IconMoon from "../svg/IconMoon";
 import Logo from "../svg/Logo";
 import ToggleSwitch from "../ui/ToggleSwitch";
+import useBoundStore from "../useBoundStore";
 
 const Header = () => {
   return (
@@ -22,9 +23,15 @@ const Header = () => {
 };
 
 const FontSelector = () => {
+  const isDarkMode = useBoundStore((state) => state.isDarkMode);
+
   return (
     <button className="flex items-center gap-4">
-      <span className="text-black-3 text-[0.875rem] font-bold">Sans Serif</span>
+      <span
+        className={` text-[0.875rem] font-bold ${isDarkMode ? "text-orange" : "text-black-3"}`}
+      >
+        Sans Serif
+      </span>
       <IconArrowDown />
     </button>
   );

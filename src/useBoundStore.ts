@@ -1,13 +1,26 @@
 import { create } from "zustand";
+import { devtools, persist } from "zustand/middleware";
 import { createSearchSlice } from "./features/dictionary/searchSlice";
+import { createDarkModeSlice } from "./features/darkMode/darkModeSlice";
 import { SearchState } from "./features/dictionary/searchSlice";
+import { DarkModeState } from "./features/darkMode/darkModeSlice";
 
-// An example if you have more than one slices
-// export type MyState = aSlice & bSlice;
-// Source: https://codesandbox.io/p/sandbox/react-query--zustand-folder-structure-161yj?file=%2Fsrc%2Fstore%2Fclient%2FuseStore.ts%3A4%2C1-4%2C51
-
-export const useBoundStore = create<SearchState>((...a) => ({
-  ...createSearchSlice(...a),
-}));
+export const useBoundStore = create<SearchState & DarkModeState>(
+  // "devtools" middleware: Enables Redux devtools for debugging
+  devtools(
+    // "persist" middleware: Store and sync to browser's local storage
+    // https://docs.pmnd.rs/zustand/integrations/persisting-store-data
+    persist(
+      (...a) => ({
+        ...createSearchSlice(...a),
+        ...createDarkModeSlice(...a),
+      }),
+      {
+        name: "boundStore",
+        partialize: (state) => ({ isDarkMode: state.isDarkMode }),
+      },
+    ),
+  ),
+);
 
 export default useBoundStore;

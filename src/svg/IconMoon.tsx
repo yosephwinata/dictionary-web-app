@@ -1,4 +1,8 @@
+import useBoundStore from "../useBoundStore";
+
 const IconMoon = () => {
+  const isDarkMode = useBoundStore((state) => state.isDarkMode);
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +12,7 @@ const IconMoon = () => {
     >
       <path
         fill="none"
-        stroke="#838383"
+        stroke={`${isDarkMode ? "#A445ED" : "#838383"}`}
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"

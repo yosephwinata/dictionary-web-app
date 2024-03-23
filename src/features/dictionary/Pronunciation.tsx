@@ -24,7 +24,9 @@ const Pronunciation = ({ word, phonetics }: PronunciationProps) => {
   return (
     <div className="mb-8 flex items-center justify-between">
       <div>
-        <p className="text-black-3 mb-[0.5rem] text-[2rem] font-bold">{word}</p>
+        <p className="text-black-3 mb-[0.5rem] text-[2rem] font-bold dark:text-white">
+          {word}
+        </p>
         <p className="text-purple text-[1.125rem] font-normal">
           {chosenPhonetic?.text}
         </p>

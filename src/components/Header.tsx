@@ -23,13 +23,9 @@ const Header = () => {
 };
 
 const FontSelector = () => {
-  const isDarkMode = useBoundStore((state) => state.isDarkMode);
-
   return (
     <button className="flex items-center gap-4">
-      <span
-        className={` text-[0.875rem] font-bold ${isDarkMode ? "text-orange" : "text-black-3"}`}
-      >
+      <span className="text-black-2 text-[0.875rem] font-bold dark:text-white">
         Sans Serif
       </span>
       <IconArrowDown />
@@ -38,7 +34,9 @@ const FontSelector = () => {
 };
 
 const VerticalLine = () => {
-  return <div className="bg-gray-2 ml-[1.1625rem] h-8 w-[0.0625rem]"></div>;
+  return (
+    <div className="bg-gray-2 ml-[1.1625rem] h-8 w-[0.0625rem] dark:bg-white"></div>
+  );
 };
 
 export default Header;

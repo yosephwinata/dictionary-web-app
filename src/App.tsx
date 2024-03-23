@@ -25,7 +25,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <div className="flex justify-center pb-[5.3rem] pt-6">
+      <div className="dark:bg-black-1 flex min-h-screen justify-center pb-[5.3rem] pt-6">
         <AppContainer />
       </div>
     </QueryClientProvider>
@@ -81,7 +81,7 @@ const LoadingIndicator = () => {
   return (
     <div className="flex h-52 w-full flex-col items-center justify-center">
       <Spinner />
-      <p className="text-gray-1 mt-2 text-lg">Loading</p>
+      <p className="text-gray-1 mt-2 text-lg dark:text-white">Loading</p>
     </div>
   );
 };
@@ -100,7 +100,9 @@ const Results = ({ data }: { data: DictionaryResponse[] }) => {
 };
 
 const HorizontalLine = () => {
-  return <div className="bg-gray-2 mb-6 h-[0.0625rem] w-full"></div>;
+  return (
+    <div className="bg-gray-2 dark:bg-black-4 mb-6 h-[0.0625rem] w-full"></div>
+  );
 };
 
 export default App;

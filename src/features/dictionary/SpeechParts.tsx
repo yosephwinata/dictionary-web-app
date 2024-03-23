@@ -29,10 +29,10 @@ const SpeechPart = ({ meaning }: { meaning: Meaning }) => {
 const SpeechPartTitle = ({ partOfSpeech }: { partOfSpeech: string }) => {
   return (
     <div className="mb-8 flex items-center gap-4">
-      <span className="text-black-3 text-[1.125rem] font-bold italic">
+      <span className="text-black-3 text-[1.125rem] font-bold italic dark:text-white">
         {partOfSpeech}
       </span>
-      <div className="bg-gray-2 h-[0.0625rem] w-full"></div>
+      <div className="bg-gray-2 dark:bg-black-4 h-[0.0625rem] w-full"></div>
     </div>
   );
 };
@@ -48,7 +48,7 @@ const Meanings = ({ definitions }: { definitions: Definition[] }) => {
           return (
             <li
               key={definition.definition}
-              className="text-black-3 list-disc text-base font-normal"
+              className="text-black-3 list-disc text-base font-normal dark:text-white"
             >
               <p>{definition.definition}</p>
             </li>

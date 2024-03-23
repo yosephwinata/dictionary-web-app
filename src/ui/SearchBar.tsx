@@ -22,7 +22,7 @@ const SearchBar = ({
         value={searchInput}
         onChange={onSearchInputChange}
         onKeyDown={onKeyDown}
-        className={`bg-gray-3 focus:outline-purple caret-purple h-12 w-full rounded-[16px] px-6 ${errorMsg && "border-orange border-2"}`}
+        className={`bg-gray-3 dark:bg-black-3 focus:outline-purple caret-purple h-12 w-full rounded-[16px] px-6 dark:text-white ${errorMsg && "border-orange border-2"}`}
       />
       <div className="absolute right-0 top-1/2 -translate-x-5 -translate-y-1/2">
         <IconSearch />

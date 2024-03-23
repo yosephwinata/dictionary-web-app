@@ -6,14 +6,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html {
-    font-family: "Inter", sans-serif;
-    /* /* font-family: "Lora", serif; */
-    /* font-family: "Inconsolata", monospace; */
-  }
-}
-
 @layer utilities {
   .list-disc-custom-color li::marker {
     /* Customize the color of the bullet point of the <li> tags */

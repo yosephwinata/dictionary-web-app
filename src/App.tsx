@@ -11,6 +11,7 @@ import { DictionaryResponse } from "./types/types";
 import useBoundStore from "./useBoundStore";
 import NoDefinitionsFound from "./ui/NoDefinitionsFound";
 import Spinner from "./ui/Spinner";
+import { fontFamilyStyles } from "./features/fontFamily/utils";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,10 +23,15 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  const fontFamily = useBoundStore((state) => state.fontFamily);
+
   return (
     <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <div className="dark:bg-black-1 flex min-h-screen justify-center pb-[5.3rem] pt-6">
+      <div
+        style={fontFamilyStyles[fontFamily]}
+        className="dark:bg-black-1 flex min-h-screen justify-center pb-[5.3rem] pt-6"
+      >
         <AppContainer />
       </div>
     </QueryClientProvider>

@@ -19,7 +19,7 @@ const Header = () => {
   };
 
   return (
-    <header className="mb-6 flex items-center">
+    <header className="mb-6 flex items-center md:mb-[3.25rem]">
       <Logo />
       <div className="relative ml-auto">
         <FontSelector onSelectorClick={toggleFontFamilyPopover} />
@@ -29,10 +29,10 @@ const Header = () => {
         />
       </div>
       <VerticalLine />
-      <div className="ml-5">
+      <div className="ml-5 md:ml-6">
         <ToggleSwitch />
       </div>
-      <div className="ml-3">
+      <div className="ml-3 md:ml-5">
         <IconMoon />
       </div>
     </header>
@@ -49,7 +49,7 @@ const FontSelector = ({ onSelectorClick }: FontSelectorProps) => {
 
   return (
     <button className="flex items-center gap-4" onClick={onSelectorClick}>
-      <span className="text-black-2 text-[0.875rem] font-bold dark:text-white">
+      <span className="text-black-2 text-[0.875rem] font-bold md:text-[1.125rem] dark:text-white">
         {fontFamilyText}
       </span>
       <IconArrowDown />
@@ -81,23 +81,23 @@ const FontFamilyPopover = ({ isOpen, togglePopover }: FontFamilyPopover) => {
         bgColor="bg-black-3"
         opacity="opacity-0"
       />
-      <div className="text-black-3  absolute right-0 z-20 flex w-32 translate-y-4 flex-col gap-2 rounded-lg bg-white p-5 font-bold shadow-2xl">
+      <div className="text-black-3 absolute right-0 z-20 flex w-32 translate-y-4 flex-col gap-2 rounded-lg bg-white p-5 text-[0.875rem] font-bold shadow-2xl md:w-44 md:gap-3 md:p-6 md:text-[1.125rem]">
         <p
-          className="hover:text-purple cursor-pointer text-[0.875rem]"
+          className="hover:text-purple cursor-pointer"
           style={fontFamilyStyles["SANS_SERIF"]}
           onClick={() => handleSelection("SANS_SERIF")}
         >
           {getFontFamilyText("SANS_SERIF")}
         </p>
         <p
-          className="hover:text-purple cursor-pointer text-[0.875rem]"
+          className="hover:text-purple cursor-pointer"
           style={fontFamilyStyles["SERIF"]}
           onClick={() => handleSelection("SERIF")}
         >
           {getFontFamilyText("SERIF")}
         </p>
         <p
-          className="hover:text-purple cursor-pointer text-[0.875rem]"
+          className="hover:text-purple cursor-pointer"
           style={fontFamilyStyles["MONO"]}
           onClick={() => handleSelection("MONO")}
         >
@@ -110,7 +110,7 @@ const FontFamilyPopover = ({ isOpen, togglePopover }: FontFamilyPopover) => {
 
 const VerticalLine = () => {
   return (
-    <div className="bg-gray-2 ml-[1.1625rem] h-8 w-[0.0625rem] dark:bg-white"></div>
+    <div className="bg-gray-2 ml-[1.1625rem] h-8 w-[0.0625rem] md:ml-[1.625rem] dark:bg-white"></div>
   );
 };
 

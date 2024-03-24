@@ -30,7 +30,7 @@ const App = () => {
       <ReactQueryDevtools initialIsOpen={false} />
       <div
         style={fontFamilyStyles[fontFamily]}
-        className="dark:bg-black-1 flex min-h-screen justify-center pb-[5.3rem] pt-6"
+        className="dark:bg-black-1 md:pt-15 flex min-h-screen justify-center pb-[5.3rem] pt-[3.625rem] md:pb-[7.375rem]"
       >
         <AppContainer />
       </div>
@@ -66,7 +66,7 @@ const AppContainer = () => {
   };
 
   return (
-    <div className="w-[20.44rem]">
+    <div className="w-[20.44rem] md:w-[43.125rem]">
       <Header />
       <main>
         <SearchBar
@@ -87,7 +87,9 @@ const LoadingIndicator = () => {
   return (
     <div className="flex h-52 w-full flex-col items-center justify-center">
       <Spinner />
-      <p className="text-gray-1 mt-2 text-lg dark:text-white">Loading</p>
+      <p className="text-gray-1 mt-2 text-lg md:mt-3 md:text-xl dark:text-white">
+        Loading
+      </p>
     </div>
   );
 };
@@ -96,7 +98,7 @@ const Results = ({ data }: { data: DictionaryResponse[] }) => {
   const { word, phonetics, meanings, sourceUrls } = data[0]; // Destructure the fetched data
 
   return (
-    <div className="mt-6">
+    <div className="mt-6 md:mt-[3.125rem]">
       <Pronunciation word={word} phonetics={phonetics} />
       <SpeechParts meanings={meanings} />
       <HorizontalLine />
@@ -107,7 +109,7 @@ const Results = ({ data }: { data: DictionaryResponse[] }) => {
 
 const HorizontalLine = () => {
   return (
-    <div className="bg-gray-2 dark:bg-black-4 mb-6 h-[0.0625rem] w-full"></div>
+    <div className="bg-gray-2 dark:bg-black-4 mb-6 h-[0.0625rem] w-full md:mb-5"></div>
   );
 };
 

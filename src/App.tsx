@@ -40,9 +40,9 @@ const App = () => {
 
 const AppContainer = () => {
   const searchInput = useBoundStore((state) => state.searchInput);
-  const setSearchInput = useBoundStore((state) => state.setSearchInput);
+  const updateSearchInput = useBoundStore((state) => state.updateSearchInput);
   const fetchKeyword = useBoundStore((state) => state.fetchKeyword);
-  const setFetchKeyword = useBoundStore((state) => state.setFetchKeyword);
+  const updateFetchKeyword = useBoundStore((state) => state.updateFetchKeyword);
 
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -52,7 +52,7 @@ const AppContainer = () => {
     if (errorMsg && e.target.value.trim()) {
       setErrorMsg("");
     }
-    setSearchInput(e.target.value);
+    updateSearchInput(e.target.value);
   };
 
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
@@ -61,7 +61,7 @@ const AppContainer = () => {
         setErrorMsg("This field is required");
       }
       // This will trigger React Query to fetch the API
-      setFetchKeyword(searchInput.trim());
+      updateFetchKeyword(searchInput.trim());
     }
   };
 

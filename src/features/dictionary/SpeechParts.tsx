@@ -60,12 +60,12 @@ const Meanings = ({ definitions }: { definitions: Definition[] }) => {
 };
 
 const Synonyms = ({ synonyms }: { synonyms: string[] }) => {
-  const setSearchInput = useBoundStore((state) => state.setSearchInput);
-  const setFetchKeyword = useBoundStore((state) => state.setFetchKeyword);
+  const updateSearchInput = useBoundStore((state) => state.updateSearchInput);
+  const updateFetchKeyword = useBoundStore((state) => state.updateFetchKeyword);
 
   const handleSynonymClick = (synonym: string) => {
-    setSearchInput(synonym);
-    setFetchKeyword(synonym);
+    updateSearchInput(synonym);
+    updateFetchKeyword(synonym);
   };
 
   return (

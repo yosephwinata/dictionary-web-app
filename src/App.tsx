@@ -66,7 +66,7 @@ const AppContainer = () => {
   };
 
   return (
-    <div className="w-[20.44rem] md:w-[43.125rem]">
+    <div className="w-[20.44rem] md:w-[43.125rem] xl:w-[46rem]">
       <Header />
       <main>
         <SearchBar

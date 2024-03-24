@@ -11,4 +11,12 @@
     /* Customize the color of the bullet point of the <li> tags */
     color: #a445ed;
   }
+
+  .box-shadow-black {
+    box-shadow: 0 0 1.25rem rgba(0, 0, 0, 0.2);
+  }
+
+  .box-shadow-purple {
+    box-shadow: 0 0 1.25rem rgba(164, 69, 237, 1);
+  }
 }

@@ -81,7 +81,7 @@ const FontFamilyPopover = ({ isOpen, togglePopover }: FontFamilyPopover) => {
         bgColor="bg-black-3"
         opacity="opacity-0"
       />
-      <div className="text-black-3 absolute right-0 z-20 flex w-32 translate-y-4 flex-col gap-2 rounded-lg bg-white p-5 text-[0.875rem] font-bold shadow-2xl md:w-44 md:gap-3 md:p-6 md:text-[1.125rem]">
+      <div className="text-black-3 box-shadow-black dark:box-shadow-purple dark:bg-black-2 absolute right-0 z-20 flex w-32 translate-y-4 flex-col gap-2 rounded-lg bg-white p-5 text-[0.875rem] font-bold md:w-44 md:gap-3 md:p-6 md:text-[1.125rem] dark:text-white">
         <p
           className="hover:text-purple cursor-pointer"
           style={fontFamilyStyles["SANS_SERIF"]}

@@ -9,7 +9,7 @@ import { FontFamilyState } from "./features/fontFamily/fontFamilySlice";
 
 export const useBoundStore = create<
   SearchState & DarkModeState & FontFamilyState
->(
+>()(
   // "devtools" middleware: Enables Redux devtools for debugging Zustand
   devtools(
     // "persist" middleware: Store and sync to browser's local storage
